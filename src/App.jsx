@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 
-// Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
@@ -14,7 +13,6 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-// Public Route Component (agar login bo'lsa home ga yo'naltirish)
 const PublicRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
@@ -29,7 +27,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Login page - agar login bo'lsa home ga o'tkazadi */}
         <Route
           path="/login"
           element={
@@ -39,7 +36,6 @@ function App() {
           }
         />
 
-        {/* Home page - faqat login bo'lganlar kiradi */}
         <Route
           path="/home"
           element={
@@ -49,10 +45,9 @@ function App() {
           }
         />
 
-        {/* Default route - login ga yo'naltiradi */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* 404 - topilmagan sahifalar */}
+        {/* 404 - toplmagan sahifalar */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

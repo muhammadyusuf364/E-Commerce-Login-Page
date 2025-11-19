@@ -15,7 +15,6 @@ import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
 import { SitemarkIcon } from "../Components/CustomIcons";
 
-// Styled Components
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -50,13 +49,11 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-// Statik foydalanuvchi ma'lumotlari
 const VALID_USER = {
   username: "admin",
   password: "test123",
 };
 
-// Validation Rules
 const validationRules = {
   username: {
     required: "Username is required",
@@ -78,7 +75,6 @@ const validationRules = {
   },
 };
 
-// Default Form Values
 const defaultValues = {
   username: "",
   password: "",
@@ -102,16 +98,13 @@ export default function SignIn() {
       console.log("Form Data:", data);
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Statik tekshirish
       if (
         data.username === VALID_USER.username &&
         data.password === VALID_USER.password
       ) {
-        // localStorage ga saqlash
         localStorage.setItem("username", data.username);
         localStorage.setItem("isLoggedIn", "true");
 
-        // Home page ga yo'naltirish
         navigate("/home");
 
         reset();

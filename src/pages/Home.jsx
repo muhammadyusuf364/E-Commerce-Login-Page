@@ -9,15 +9,12 @@ import Divider from "@mui/material/Divider";
 export default function Home() {
   const navigate = useNavigate();
 
-  // localStorage dan username olish
   const username = localStorage.getItem("username");
 
   const handleLogout = () => {
-    // localStorage ni tozalash
     localStorage.removeItem("username");
     localStorage.removeItem("isLoggedIn");
 
-    // Login page ga qaytish
     navigate("/login");
   };
 
